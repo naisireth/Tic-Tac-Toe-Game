@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+
+/* --------- Basic Styles --------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* --------- Colors --------- */
+
+:root {
+    --clr-primary: #3d4a79;
+    --clr-letter: #6f6b6b;
+    --clr-border-bottom: #6f6b6b92;
+}
+
+/* --------- Main Container --------- */
+
+.main-container {
+    height: 100vh;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.title-container {
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: var(--clr-primary);
+    line-height: 40px;
+}
+
+.btnRestart {
+    width: 175px;
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--clr-primary);
+    color: var(--clr-primary);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: -50px;
+}
+
+.btnRestart:hover {
+    color: #ffffff;
+    background-color: var(--clr-primary);
+}
+
+/* --------- Game Container --------- */
+
+.game {
+    width: 290px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    text-align: center;
+    color: var(--clr-letter);
+    font-size: 1.2rem;
+}
+
+.header .playerX, .header .playerO {
+    flex: 1;
+    padding-bottom: 8px;
+    border-bottom: 4px solid var(--clr-border-bottom);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0px;
+    flex-grow: 1;
+    margin: 18px 10px;
+}
+
+.board-tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* --------- Vertical Lines --------- */
+
+
+.board-tile:not(:nth-child(3n)) {
+    border-right: 3px solid #8F8F8F;
+}
+
+/* --------- Horizontal Lines --------- */
+
+.board-tile:not(:nth-last-child(-n + 3)) {
+    border-bottom: 3px solid #8F8F8F;
+}
+
+.board-tile:hover {
+    background-color: #8f8f8f40;
+}
+
+.tile-winner {
+    background-color: #8f8f8f75;
+}
+
+/* --------- For Medium Screens --------- */
+
+@media screen and (min-width: 600px) {
+    .title-container {
+        margin-bottom: 50px;
+    }
+    .title {
+        font-size: 2.3rem;
+        line-height: 50px;
+    }
+    .btnRestart {
+        font-size: 1rem;
+        width: 180px;
+        padding: 14px 0;
+    }
+    .header {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-top: 30px;
+    }
+    .game {
+        width: 370px;
+        height: 350px;
+    }
+    .board-tile {
+        font-size: 50px;
+        font-weight: 600;
+    }
+}
